@@ -14,6 +14,13 @@ variables:
 pool:
   vmImage: windows-latest
 
+parameters:
+- name: buildSteps
+  type: stepList
+  default:
+    - task: AdvancedSecurity-Codeql-Autobuild-PPE@1
+      displayName: AutoBuild
+      
 steps:
 - task: AdvancedSecurity-Codeql-Init-PPE@1
   displayName: Initialize CodeQL
