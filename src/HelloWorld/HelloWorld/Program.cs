@@ -17,6 +17,16 @@ namespace HelloWorld
             String message = "Hello World";
             byte[] messageB = System.Text.Encoding.ASCII.GetBytes(message);
             var encrypted = encryptor.TransformFinalBlock(messageB, 0, messageB.Length);
+            
+            string testStr = null;
+            if (unUsedMesage != null )
+            {
+                testStr = unUsedMesage;
+            }
+            else
+            {
+                testStr = null;
+            }
         }
     }
 }
