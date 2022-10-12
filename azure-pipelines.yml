@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+variables:
+  advancedsecurity.codeql.language: csharp
+  # advancedsecurity.codeql.logLevel: 2
+  # advancedsecurity.codeql.debug: true
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: AdvancedSecurity-Codeql-Init-PPE@1
+  displayName: Initialize CodeQL
+
+- ${{ parameters.buildSteps }}
+
+- task: AdvancedSecurity-Codeql-Analyze-PPE@1
+  displayName: Perform CodeQL Analysis
+
+- task: AdvancedSecurity-Publish-PPE@1
+  displayName: Publish code scanning results
