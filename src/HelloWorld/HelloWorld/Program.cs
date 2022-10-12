@@ -13,6 +13,7 @@ namespace HelloWorld
             serviceProvider.Key = key;
             ICryptoTransform encryptor = serviceProvider.CreateEncryptor();
 
+            string unUsedMesage = "No Used";
             String message = "Hello World";
             byte[] messageB = System.Text.Encoding.ASCII.GetBytes(message);
             var encrypted = encryptor.TransformFinalBlock(messageB, 0, messageB.Length);
